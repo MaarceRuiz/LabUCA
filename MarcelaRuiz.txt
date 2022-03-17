@@ -1,1 +1,75 @@
-Hola soy MARCELA RUIZ
+
+using System;
+
+namespace calculadora
+            {
+        internal class Program
+        {
+            public static void Main(string[] args)
+            {
+                //Escribe tu programa sobre una calculadora que realice las 4 operaciones basicas
+    
+                /*
+                 * Requerimientos:
+                 *
+                 * Realizar las operaciones según la opción que seleccione el usuario, mediante un menú repetitivo
+                 * Programar una opcion para salir del menú.
+                 * 
+                 */
+                string continuar = "";
+                double resultado;
+                do
+                {
+                    Console.WriteLine("¿Qué desea hacer?");
+                    Console.WriteLine("+ Sumar\n- Restar\n* Multiplicar\n/ Dividir ");
+                    continuar = Console.ReadLine();
+                    string resp = Convert.ToString(continuar);
+                    Console.Write("Digite el primer numero: ");
+                    double num1 = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Digite el segundo numero: ");
+                    double num2 = Convert.ToInt32(Console.ReadLine());
+                    
+                    switch (resp)
+                    {
+                        case "+":
+                            resultado = num1 + num2;
+                            Console.WriteLine("La suma de los dos numeros es de: " + resultado);
+
+                            break;
+                        case "-":
+                            resultado = num1 - num2;
+                            Console.WriteLine("La resta de los dos numeros es de: " + resultado);
+
+                            
+                            break;
+                        case "*":
+                            resultado = num1 * num2;
+                            Console.WriteLine("La multiplicación de los dos numeros es de: " + resultado);
+
+                            break;
+                        case "/":
+                            if (num2 == 0)
+                            {
+                                Console.WriteLine("No se puede dividir entre 0");
+                            }
+                            else
+                            {
+                                resultado = (num1 / num2);
+                                Console.WriteLine("La división de los dos numeros es de: " + resultado);
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("Signo equivocado, vuelve a intentarlo");
+                            break;
+                        
+                    }
+                    
+                    Console.Write("¿Desea Continuar?(s/n): ");
+                    continuar = Console.ReadLine();
+
+                } while (continuar == "s" || continuar =="s");
+    
+            }
+        }
+    }
+    
